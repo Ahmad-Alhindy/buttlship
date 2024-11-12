@@ -58,7 +58,6 @@ fun secondScreen (navController: NavController) {
                         shadow = Shadow(
                             color = Color.Black,
                             offset = Offset(5f, 5f), // Controls thickness; adjust as needed
-                            blurRadius = 0f
                         )
                     )
                 )
@@ -76,7 +75,7 @@ fun secondScreen (navController: NavController) {
                         containerColor = Color.Red
                     )
                 ) {
-                    Text("Play", color = Color.White)
+                    Text("Enter", color = Color.White)
                 }
                 Row  (modifier = Modifier.padding(100.dp)) {}
             }

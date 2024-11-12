@@ -59,10 +59,11 @@ class MainActivity : ComponentActivity() {
 
 
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun GreetingPreview() {
     ButtleshipsTheme {
         lobby( navController = rememberNavController())
     }
 }
+

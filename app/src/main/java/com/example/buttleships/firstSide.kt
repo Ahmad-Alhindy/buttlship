@@ -46,7 +46,7 @@ fun firstScreen(navController: NavController) {
                         containerColor = Color.Red
                     )
                 ) {
-                    Text("Enter Your Name", color = Color.White)
+                    Text("Enter The Game", color = Color.White)
                 }
             }
         }

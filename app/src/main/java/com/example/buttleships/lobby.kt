@@ -1,18 +1,27 @@
 package com.example.buttleships
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 
 import androidx.compose.material3.TextField
@@ -35,9 +44,7 @@ import androidx.navigation.NavController
 
 
 @Composable
-fun lobby(navController : NavController){
-    var name by remember{ mutableStateOf("") }
-    var errorMessage by remember { mutableStateOf("") }
+fun lobby(navController : NavController) {
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {// the box is allow you to have multiple things over each other
@@ -51,32 +58,82 @@ fun lobby(navController : NavController){
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                .padding(top = 100.dp),
+                    .padding(top = 25.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("Welcome to the Lobby", color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Bold,
+                Text(
+                    "Welcome to the Lobby",
+                    color = Color.White,
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(bottom = 50.dp),
                     style = TextStyle(
                         shadow = Shadow(
                             color = Color.Black,
                             offset = Offset(5f, 5f), // Controls thickness; adjust as needed
-                            blurRadius = 0f
                         )
                     )
                 )
-                TextField(modifier = Modifier.padding(20.dp) .fillMaxSize(),
-                    value = name,
-                    onValueChange = { name = it },
-                    label = { }
+                // the black box that contains the names
+                Box(
+                    modifier = Modifier
+                        .size(
+                            width = 380.dp,
+                            height = 650.dp
+                        )
+                        .background(Color.Black)
+                ) {
+                    val names = listOf("Alice", "Bob", "Charlie, Alice", "Bob", "Charlie", "alice",
+                        "Bob", "Charlie","Alice", "Bob", "Charlie, Alice", "Bob", "Charlie", "alice", "Bob", "Charlie","Alice",
+                        "Bob", "Charlie, Alice", "Bob", "Charlie", "alice", "Bob", "Charlie",) // Sample names
+                    // names column
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize() .padding(top = 15.dp),
+                        verticalArrangement = Arrangement.spacedBy(6.dp) // for spacing between items
+                    ) {
+                        items(names) { name ->
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(start = 15.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
 
+                                    // Black circle/point
+                                    Canvas(modifier = Modifier.size(13.dp)) {
+                                        drawCircle(color = Color.White)
+                                    }
+                                Spacer(modifier = Modifier.width(15.dp)) // Space between circle and text
+                                Text(
+                                    text = name,
+                                    color = Color.White,
+                                    fontSize = 16.sp,
+                                    modifier = Modifier.weight(1f)
 
-                )
+                                )
+                                TextButton(
+                                    onClick = { /* Handle button action */ },
+                                    modifier = Modifier.padding(end = 10.dp)
+                                ) {
+                                    Text("Invite",
+                                        fontWeight = FontWeight.ExtraBold,
+                                        color = Color.White,
+                                        fontSize = 16.sp
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
                 Button(
                     onClick = {
                         navController.navigate(nav.lobby)
                     },
-                    colors = buttonColors( // this will make the button it self red
-                        containerColor = Color.Red
-                    )
+                    colors = buttonColors(
+                        // this will make the button it self red
+                        containerColor = Color.Red,
+                    ),
+                    modifier = Modifier.padding(20.dp)
                 ) {
                     Text("Play", color = Color.White)
                 }
