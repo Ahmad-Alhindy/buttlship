@@ -67,3 +67,10 @@ fun GreetingPreview() {
     }
 }
 
+@Preview
+@Composable
+fun GreetingPreview1() {
+    ButtleshipsTheme {
+        firstScreen( navController = rememberNavController())
+    }
+}
