@@ -32,13 +32,14 @@ fun firstScreen(navController: NavController) {
                 modifier = Modifier.fillMaxSize()
             )
 
-            Column(
+            Box(
                 modifier = Modifier
-                    .fillMaxSize(),
-                verticalArrangement = Arrangement.Center, // putt the button in the middil of the page
-                horizontalAlignment = Alignment.CenterHorizontally
+                    .fillMaxSize()
             ) {
                 Button(
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .padding(bottom = 40.dp),
                     onClick = {
                         navController.navigate(nav.secondScreen)
                     },
@@ -46,7 +47,7 @@ fun firstScreen(navController: NavController) {
                         containerColor = Color.Red
                     )
                 ) {
-                    Text("Enter The Game", color = Color.White)
+                    Text("Start The Game", color = Color.White)
                 }
             }
         }

@@ -3,6 +3,7 @@ package com.example.buttleships
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -95,8 +96,12 @@ fun lobby(navController : NavController) {
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(start = 15.dp),
+                                    .padding(start = 15.dp)
+                                    .clickable {
+                                        navController.navigate("mainGame")
+                                    },
                                 verticalAlignment = Alignment.CenterVertically,
+
                             ) {
 
                                     // Black circle/point
