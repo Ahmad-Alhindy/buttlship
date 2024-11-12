@@ -47,7 +47,7 @@ import androidx.navigation.NavController
 fun lobby(navController : NavController) {
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding)) {// the box is allow you to have multiple things over each other
+        Box(modifier = Modifier.padding(innerPadding)) {// This box allows you to have multiple things on top of each other
             Image(
                 painter = painterResource(R.drawable.background),
                 contentDescription = null,
@@ -74,14 +74,14 @@ fun lobby(navController : NavController) {
                         )
                     )
                 )
-                // the black box that contains the names
+                // A black box that contains the names
                 Box(
                     modifier = Modifier
                         .size(
                             width = 380.dp,
                             height = 650.dp
                         )
-                        .background(Color.Black)
+                        .background(Color.Black.copy(alpha = 0.5f))
                 ) {
                     val names = listOf("Alice", "Bob", "Charlie, Alice", "Bob", "Charlie", "alice",
                         "Bob", "Charlie","Alice", "Bob", "Charlie, Alice", "Bob", "Charlie", "alice", "Bob", "Charlie","Alice",
@@ -130,7 +130,7 @@ fun lobby(navController : NavController) {
                         navController.navigate(nav.lobby)
                     },
                     colors = buttonColors(
-                        // this will make the button it self red
+                        // Changes the color of the button
                         containerColor = Color.Red,
                     ),
                     modifier = Modifier.padding(20.dp)
