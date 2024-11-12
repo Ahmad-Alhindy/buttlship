@@ -24,7 +24,7 @@ import androidx.navigation.NavController
 @Composable
 fun firstScreen(navController: NavController) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding)) {// the box is allow you to have multiple things over each other
+        Box(modifier = Modifier.padding(innerPadding)) {// This box allows you to have multiple things on top of each other
             Image(
                 painter = painterResource(R.drawable.background),
                 contentDescription = null,

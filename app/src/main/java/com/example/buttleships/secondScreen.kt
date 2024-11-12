@@ -38,7 +38,7 @@ fun secondScreen (navController: NavController) {
     var errorMessage by remember { mutableStateOf("") }
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding)) {// the box is allow you to have multiple things over each other
+        Box(modifier = Modifier.padding(innerPadding)) {// This box allows you to have multiple things on top of each other
             Image(
                 painter = painterResource(R.drawable.background),
                 contentDescription = null,
@@ -50,7 +50,7 @@ fun secondScreen (navController: NavController) {
                 modifier = Modifier
                     .fillMaxSize(),
 
-                verticalArrangement = Arrangement.Bottom, // putt the button in the middil of the page
+                verticalArrangement = Arrangement.Bottom, // putt the button in the middle of the page
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text("Enter Your Name", color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Bold,
