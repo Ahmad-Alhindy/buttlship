@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.buttleships.nav.mainGame
 import com.example.buttleships.ui.theme.ButtleshipsTheme
 
 class MainActivity : ComponentActivity() {
@@ -47,6 +48,9 @@ class MainActivity : ComponentActivity() {
                     }
                     composable(nav.lobby) {
                         lobby(navController = navController)
+                    }
+                    composable (nav.mainGame) {
+                        MainGame(navController = navController)
                     }
                 })
 
