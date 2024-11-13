@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -40,7 +39,7 @@ fun MainGame (navController: NavController) {
                         height = 100.dp
                     )
                     .padding(20.dp)
-                    .background(Color.Black.copy(alpha = 0.5f))
+                    .background(Color.Black.copy(alpha = 0.5f)) // making the background transparent
                     .align(Alignment.TopCenter)
             ){
                 Text(text = "Name: ",

@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ButtleshipsTheme {
-        lobby( navController = rememberNavController())
+        firstScreen( navController = rememberNavController())
     }
 }
 
@@ -75,6 +75,6 @@ fun GreetingPreview() {
 @Composable
 fun GreetingPreview1() {
     ButtleshipsTheme {
-        firstScreen( navController = rememberNavController())
+        MainGame( navController = rememberNavController())
     }
 }
