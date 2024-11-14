@@ -72,7 +72,7 @@ fun lobby(navController : NavController) {
                     modifier = Modifier
                         .size(
                             width = 380.dp,
-                            height = 650.dp
+                            height = 550.dp
                         )
                         .background(Color.Black.copy(alpha = 0.5f)) //make the background transparent
                 ) {
