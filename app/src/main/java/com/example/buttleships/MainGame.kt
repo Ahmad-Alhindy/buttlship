@@ -22,6 +22,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
+class MyBox(var columnNumber: Int = 0, var rowNumber: Int = 0) {
+    @Composable
+    fun MyComposableBox() {
+        Box(
+            modifier = Modifier
+                .border(width = 1.dp, color = Color.White)
+                .size(34.dp)
+        ) {
+            // You can use the 'number' property here if needed
+            Text(text = rowNumber.toString(), color = Color.White)
+            Text(text = columnNumber.toString(), color = Color.White, modifier = Modifier.align(Alignment.Center))
+        }
+    }
+}
+
+
+
 @Composable
 fun MainGame (navController: NavController) {
     Scaffold (modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -41,43 +58,57 @@ fun MainGame (navController: NavController) {
                     .padding(20.dp)
                     .background(Color.Black.copy(alpha = 0.5f)) // making the background transparent
                     .align(Alignment.TopCenter)
-            ){
-                Text(text = "Name: ",
+            ) {
+                Text(
+                    text = "Name: ",
                     textAlign = TextAlign.Start,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 10.dp),
                     color = Color.White
                 )
-                Text(text = "Score: 0-0",
+                Text(
+                    text = "Score: 0-0",
                     textAlign = TextAlign.End,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(end = 20.dp ),
+                        .padding(end = 20.dp),
                     color = Color.White,
 
-                )
+                    )
             }
-            Column (
+            Column(
                 modifier = Modifier
                     .size(
-                        width = 380.dp,
-                        height = 420.dp
+                        width = 400.dp,
+                        height = 454.dp
                     )
-                    .padding(20.dp)
+                    .padding(10.dp)
                     .padding(bottom = 40.dp)
                     .background(Color.Black.copy(alpha = 0.5f))
                     .align(Alignment.BottomCenter)
             ) {
-                for (i in 0 until 10) {
+                for (i in 0 until 11) {
                     Row {
-                        for (j in 0 until 10) {
-                            Box (
-                                modifier = Modifier
-                                    .border(width = 1.dp, color = Color.White)
-                                    .size(34.dp)
-                            ){
 
+                       if(i > 0) {
+                           Text(
+                               text = (i- 1).toString(),
+                               color = Color.White,
+                               modifier = Modifier.padding(end = 10.dp)
+                           )
+                       }
+                        for (j in 1 until 11) {
+                            if (i == 0) {
+                                Text(
+                                    text = (j-1).toString(),
+                                    color = Color.White,
+                                    modifier = Modifier.padding(start = 25.dp)
+                                )
+                            }
+                            else {
+                                val myBox = MyBox(j, i)
+                                myBox.MyComposableBox()
                             }
                         }
                     }
