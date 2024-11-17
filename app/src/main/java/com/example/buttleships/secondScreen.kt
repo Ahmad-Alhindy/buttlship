@@ -24,17 +24,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.compose.ui.text.TextStyle
 
 
 @Composable
 fun secondScreen (navController: NavController) {
     var name by remember{ mutableStateOf("") }
-    var errorMessage by remember { mutableStateOf("") }
+
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {// This box allows you to have multiple things on top of each other
@@ -68,6 +68,7 @@ fun secondScreen (navController: NavController) {
                 )
                 Button(
                     onClick = {
+                        dataBase.NewPlayer("player5", name)
                         navController.navigate(nav.lobby)
                     },
                     colors = buttonColors( // this will make the button it self red
